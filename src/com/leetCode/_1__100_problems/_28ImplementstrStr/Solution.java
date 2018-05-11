@@ -29,7 +29,6 @@ public class Solution {
         String haystack ="a";
         String needle ="a";
 
-
         System.out.println("result: " + new  Solution().strStr("a","a"));
 
     }
