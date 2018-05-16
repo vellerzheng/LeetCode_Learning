@@ -9,22 +9,22 @@ public class Solution {
      * @return
      */
     public int search(int[] nums,int target){
-        int l= 0, m=0, r= nums.length-1,  result= -1;
+        int l= 0, mid=0, r= nums.length-1,  result= -1;
         while (l <= r){
-            m = (l+r)>>1; // 除以二
-            if(nums[m] == target)
-                return m;
-            if(nums[l] <= nums[m]){  // indicate that the nums[m] is in the ascending order
-                if(nums[l] <= target && nums[m]> target){ //target is int [l,m]
-                    r = m - 1;
+            mid = (l+r)>>1; // 除以二
+            if(nums[mid] == target)
+                return mid;
+            if(nums[l] <= nums[mid]){  // indicate that the nums[m] is in the ascending order
+                if(nums[l] <= target && nums[mid]> target){ //target is int [l,m]
+                    r = mid - 1;
                 }else {  // target is in [m,r]
-                    l = m + 1;
+                    l = mid + 1;
                 }
             }else {
-                if(nums[m] < target && nums[r] >= target){ //target is in [m,r]
-                    l = m + 1;
+                if(nums[mid] < target && nums[r] >= target){ //target is in [m,r]
+                    l = mid + 1;
                 }else { //target is in [l,m]
-                    r = m - 1;
+                    r = mid - 1;
                 }
             }
         }
@@ -42,10 +42,13 @@ public class Solution {
         return res;
     }
 
+
+
+
     public static void main(String[] args) {
 
 
-        int[] nums = {4,5,6,7,0,1,2};
+        int[] nums = {5,6,7,0,1,2,4};
         int target = 0;
 
         System.out.println("result: " + new  Solution().search(nums,target));
